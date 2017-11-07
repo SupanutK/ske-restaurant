@@ -1,0 +1,6 @@
+#menu; price
+Pizza; 250.00
+Chicken; 120.00
+Cake; 80
+Coke; 45
+Milkshake; 60
