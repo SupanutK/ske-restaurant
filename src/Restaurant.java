@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class skerestaurantmain {
+public class Restaurant {
 	public static Scanner input = new Scanner(System.in);
 	private static ArrayList<Integer> order = new ArrayList<Integer>();
 	static double sum = 0;
@@ -49,9 +49,9 @@ public class skerestaurantmain {
 			for (int j = 0; j < menu.length; j++) {
 				total = total + order.get(j);
 			}
-			System.out.println("+--------------------------+---------+-----------+");
+			System.out.println("o--------------------------o---------o-----------o");
 			System.out.printf("|Total\t\t\t   |\t%.0f    |\t%7.2f  |\n", total, sum);
-			System.out.println("+--------------------------+---------+-----------+");
+			System.out.println("o--------------------------o---------o-----------o");
 		}
 		return sum;
 	}
@@ -120,7 +120,7 @@ public class skerestaurantmain {
 			price = printOrder(sum, choice);
 			if ((!choice.equalsIgnoreCase("T") && !choice.equalsIgnoreCase("P") && !choice.equalsIgnoreCase("E")
 					&& !choice.equalsIgnoreCase("M")) && !choice.equals(CheckInt(choice))) {
-				System.out.println("Incorrect menu!!\nTry again.");
+				System.out.println("Incorrect menu\nPlease try again.");
 				continue;
 			}
 			if (choice.equalsIgnoreCase("M")) {
@@ -129,12 +129,12 @@ public class skerestaurantmain {
 				entertheOrder();
 			} else if (choice.equalsIgnoreCase("E")) {
 				System.out.print("==== Thank you ====");
-				System.out.print("Have a nice day :D");
+				System.out.println(" Have a nice day :D");
 				System.exit(0);
 			} else if (choice.equalsIgnoreCase("P")) {
 				payMent(price);
 				System.out.print("==== Thank you ====");
-				System.out.print("Have a nice day :D");
+				System.out.println(" Have a nice day :D");
 				System.exit(0);
 			} else if (!choice.equalsIgnoreCase("T") && !choice.equalsIgnoreCase("M") && !choice.equalsIgnoreCase("P")
 					&& !choice.equalsIgnoreCase("E")) {
