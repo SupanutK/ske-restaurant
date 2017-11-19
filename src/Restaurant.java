@@ -1,4 +1,7 @@
-
+import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 /*
  /**
  * User interface for a menu and ordering system,
@@ -6,16 +9,15 @@
  *
  * @author Supanut Petchnapaphan
  */
-import java.util.Scanner;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
+
 
 public class Restaurant {
 	public static Scanner input = new Scanner(System.in);
 	private static ArrayList<Integer> order = new ArrayList<Integer>();
 	static double sum = 0;
-
+   /**
+    * This method will print menu.
+    */
 	public static void printMenu() {
 		String[] menu = RestaurantManager.getMenuItem();
 		double[] price = RestaurantManager.getPrices();
@@ -29,7 +31,12 @@ public class Restaurant {
 		System.out.println("[P]ayment");
 		System.out.println("[E]xit");
 	}
-
+/**
+ * This method will print order by choose choice "T".
+ * @param sum
+ * @param choice
+ * @return
+ */
 	public static double printOrder(double sum, String choice) {
 		Double total = 0.0;
 		String[] menu = RestaurantManager.getMenuItem();
@@ -55,7 +62,10 @@ public class Restaurant {
 		}
 		return sum;
 	}
-
+/**
+ * This method will get money from user and change money.
+ * @param finalpay
+ */
 	public static void payMent(double finalpay) {
 		double money;
 		do {
@@ -68,12 +78,18 @@ public class Restaurant {
 		} while (money < finalpay);
 		System.out.printf("Change(Baht): %.2f\n", money - finalpay);
 	}
+	
 	public static void setOrder() {
 		for (int k = 0; k < RestaurantManager.getMenuItem().length; k++) {
 			order.add(0);
 		}
 	}
-
+/**
+ * This method will calculate price.
+ * @param choice
+ * @param quantity
+ * @return
+ */
 	public static double calculatePrice(String choice, int quantity) {
 		int orders, all;
 		double prices = 0;
@@ -100,6 +116,11 @@ public class Restaurant {
 		}
 		return prices;
 	}
+	/**
+	 * This method will check choice if it integer choice then user can order other menu.
+	 * @param choice
+	 * @return
+	 */
 	public static String CheckInt(String choice){
 		String stri;
 		for (int cha = 1; cha <= RestaurantManager.getPrices().length; cha++){
@@ -109,7 +130,9 @@ public class Restaurant {
 			}
 		}return " ";
 	}
-
+/**
+ * Input choice to get some more food or show menu again or payment or see order or exit.
+ */
 	public static void entertheOrder() {
 		String choice;
 		int qty = 0;
